@@ -4,6 +4,13 @@ import * as Yup from "yup";
 import axios from "axios";
 
 function Register() {
+  const [list, setList] = React.useState({
+    name: "",
+    email: "",
+    password: "",
+    termsOfService: false
+  });
+
   return (
     <div>
       <Form>
@@ -66,11 +73,15 @@ const RegisterFormik = withFormik({
 
   handleSubmit(values, tools) {
     console.log(values, tools);
+    const list = tools.props.userList;
+    const setList = tools.props.setUserList;
 
     axios
       .post("https://reqres.in/api/users_", values)
       .then(response => {
-        console.log(response.data);
+        let info = response.data;
+        console.log(info);
+        setList([...list, response.data]);
         tools.resetForm();
       })
       .catch(error => {
