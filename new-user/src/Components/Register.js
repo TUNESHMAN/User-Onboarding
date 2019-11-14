@@ -1,19 +1,20 @@
 import React from "react";
+import {withFormik, Form, Field} from 'formik';
 
 function Register() {
   return (
     <div>
-      <form>
+      <Form>
         <label htmlFor="new_user_name">NAME</label>
-        <input type="text" name="name" id="new_user_name"></input>
+        <Field type="text" name="name" id="new_user_name"></Field>
         <label htmlFor="new_user_email">EMAIL</label>
-        <input type="text" name="email" id="new_user_email"></input>
+        <Field type="text" name="email" id="new_user_email"></Field>
         <label htmlFor="new_user_password">PASSWORD</label>
-        <input type="password" name="password" id="new_user_password"></input>
+        <Field type="password" name="password" id="new_user_password"></Field>
         <label htmlFor="new_user_terms">TERMS OF SERVICE</label>
-        <input type="checkbox" name="termsOfService" id="new_user_terms"></input>
-        <input type="submit"></input>
-      </form>
+        <Field type="checkbox" name="termsOfService" id="new_user_terms"></Field>
+        <Field type="submit"></Field>
+      </Form>
     </div>
   );
 }
